@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)http://twitter.github.com/bootstrap/examples/marketing-narrow.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Event Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body 
+	  {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: left;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 16px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+	  
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" href="css/main.css" type="text/css" />
+	<script src="js/jquery.min.js"></script>
+	<script src="js/md5.js"></script>
+	
+	  
+  <script type="text/javascript" language="javascript">
+		var count=0,captchaStatus=0;
+
+
+		/*Captcha code  Starts here*/
+	function getCookie(c_name) 
+	{
+	    if (document.cookie.length>0) {
+		c_start=document.cookie.indexOf(c_name + "=");
+		if (c_start!=-1) {
+		    c_start=c_start + c_name.length+1;
+		    c_end=document.cookie.indexOf(";",c_start);
+		    if (c_end==-1) c_end=document.cookie.length;
+		    return unescape(document.cookie.substring(c_start,c_end));
+		}
+	    }
+	    return "";
+	}
+
+	function checkCaptcha() 
+	{
+	    // check captcha
+	    var sInsCaptcha = calcMD5($('.captcha').val());
+	    var sCookieCaptcha = getCookie('strSec');
+
+	    if (sInsCaptcha == sCookieCaptcha) 
+		{
+		captchaStatus=1;
+		//alert(count);
+		//alert("count incremented for captcha");
+	    	} 
+		else 
+		{
+		document.getElementById('registration_error').innerHTML="Please Enter correct captcha code";
+	    	}
+	}
+	/* Captcha code ends here */
+
+
+
+		function validateRegistrationDetails()
+		{
+		
+		
+		var exp1=/^[a-zA-Z]*$/ //for fname lname city 
+		var exp5=/^[7-9][0-9]{9,10}$/ //for phone number
+		var exp6=/^(\w|\.)*@[a-z]*\.[a-z]*$/ // for email
+		var exp7=/^(\w|\.)*@[a-z]*\.[a-z]*\.[a-z]*$/ // for email like .co.in
+		
+		/* Getting values from FORM controls */
+		var name=document.signup.name.value;
+		var company=document.signup.company.value;
+		var mobileno=document.signup.mobileno.value;
+		var emailid=document.signup.emailid.value;
+		var city=document.signup.city.value;
+		var country=document.signup.country.value;
+		var pre_edition=document.signup.pre_edition.value;
+		var prof=document.signup.prof.value;
+		var des=document.signup.des.value;
+		var captcha=document.signup.captcha.value;
+		
+		
+		if(name==null || name=="")
+		{
+			document.getElementById('registration_error').innerHTML="Please Enter Name";
+			return false;
+		}
+		else if(company==null || company=="")
+		{
+			document.getElementById('registration_error').innerHTML="Please Enter Company Name";
+			return false;
+		}
+		else if(mobileno==null || mobileno=="")
+		{
+			document.getElementById('registration_error').innerHTML="Please Enter Mobile Number";
+			return false;
+		}
+		else if(emailid==null || emailid=="")
+		{
+			document.getElementById('registration_error').innerHTML="Please Enter Email Id";
+			return false;
+		}
+		else if(city==null || city=="")
+		{
+			document.getElementById('registration_error').innerHTML="Please Enter City";
+			return false;
+		}
+		else if(country==null || country=="")
+		{
+			document.getElementById('registration_error').innerHTML="Please Select the Country";
+			return false;
+		}
+		else if(pre_edition==null || pre_edition=="")
+		{
+			document.getElementById('registration_error').innerHTML="Please Select Previous Edition Details";
+			return false;
+		}
+		else if(prof==null || prof=="")
+		{
+			document.getElementById('registration_error').innerHTML="Please Select Profession";
+			return false;
+		}
+		else if(des==null || des=="")
+		{
+			document.getElementById('registration_error').innerHTML="Please Select Designation";
+			return false;
+		}
+		else if(captcha==null || captcha=="")
+		{
+			document.getElementById('registration_error').innerHTML="Please Enter Captcha Code";
+			return false;
+		}
+		else
+		{
+		
+			if(exp1.test(document.signup.name.value))
+			{
+				count++;
+				
+				
+			}
+			else
+			{
+				document.getElementById('registration_error').innerHTML="Please Enter Valid Name";
+				return false;
+			}
+			if(exp1.test(document.signup.company.value))
+			{
+				count++;
+				
+			}
+			else
+			{
+				document.getElementById('registration_error').innerHTML="Please Enter Valid company Name";
+				return false;
+			}
+			
+			if(exp5.test(document.signup.mobileno.value))
+			{
+				count++;
+				
+			}
+			else
+			{
+				document.getElementById('registration_error').innerHTML="Please Enter Valid Phone Number";
+				return false;
+			}
+			
+			if(exp6.test(document.signup.emailid.value))
+			{
+				count++;
+				
+			}
+			else
+			{
+				if(exp7.test(document.signup.emailid.value))
+				{
+					count++;
+					
+				}
+				else
+				{
+					document.getElementById('registration_error').innerHTML="Please Enter Valid Email Id";
+					return false;
+				}
+			}
+			if(exp1.test(document.signup.city.value))
+			{
+				count++;
+				
+			}
+			else
+			{
+				document.getElementById('registration_error').innerHTML="Please Enter Valid City Name";
+				return false;
+			}
+		}
+		
+		if(count==5 && captchaStatus==1)
+		return true;
+		else	
+		return false;		}
+		</script>
+		<script>
+	/* VALIDATION FOR REGISTARTION STARTS HERE*/
+	
+  </script>
+	
+   </head>
+  	
+
+  <script>
+	
+	function validateContactDetails()
+	{
+	var count=0;
+	var exp1=/^[a-zA-Z]*$/ //for fname lname city 
+	var exp5=/^[7-9][0-9]{9,10}$/ //for phone number
+	var exp6=/^(\w|\.)*@[a-z]*\.[a-z]*$/ // for email
+	var exp7=/^(\w|\.)*@[a-z]*\.[a-z]*\.[a-z]*$/ // for email like .co.in
+	
+	var name=document.contact.name.value;
+	var mobileno=document.contact.mobileno.value;
+	var emailid=document.contact.emailid.value;
+	var message=document.contact.message.value;;
+	
+	if(name==null || name=="")
+	{
+		document.getElementById('contact_error').innerHTML="Please Enter Name";
+		return false;
+	}
+	else if(mobileno==null || mobileno=="")
+	{
+		document.getElementById('contact_error').innerHTML="Please Enter Mobile Number";
+		return false;
+	}
+	else if(emailid==null || emailid=="")
+	{
+		document.getElementById('contact_error').innerHTML="Please Enter Email id";
+		return false;
+	}
+	else if(message==null || message=="")
+	{
+		document.getElementById('contact_error').innerHTML="Please Enter Message";
+		return false;
+	}
+	else
+	{
+		
+		if(exp1.test(document.contact.name.value))
+		{
+			count++;
+			
+		}
+		else
+		{
+			document.getElementById('contact_error').innerHTML="Please Enter Valid Name";
+			return false;
+		}
+		
+		if(exp5.test(document.contact.mobileno.value))
+		{
+			count++;
+			
+		}
+		else
+		{
+			document.getElementById('contact_error').innerHTML="Please Enter Valid Phone Number";
+			return false;
+		}
+		
+		if(exp1.test(document.contact.message.value))
+		{
+			count++;
+			
+		}
+		else
+		{
+			document.getElementById('contact_error').innerHTML="Please Enter Valid Message";
+			return false;
+		}
+		
+		if(exp6.test(document.contact.emailid.value))
+			{
+				count++;
+				
+			}
+			else
+			{
+				if(exp7.test(document.contact.emailid.value))
+				{
+					count++;
+					
+				}
+				else
+				{
+					document.getElementById('contact_error').innerHTML="Please Enter Valid Email Id";
+					return false;
+				}
+			}
+	}
+	
+		if(count==4)
+		return true;	
+		else
+		return false;
+	
+	}
+
+	
+	
+
+	
+  </script>
+	
+  <script>
+	
+  </script>
+  
+
+	
+  <body>
+
+    <div class="container-narrow">
+	
+	<!-- top banner -->
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Register</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <h3 class="muted">LOGO</h3>
+      </div>
+      <hr>
+
+	<!-- event description -->
+      <div class="jumbotron">
+        <h4>Event Name</h4>
+        <p class="lead">Event Description .. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      </div>
+	  <hr>
+	  
+	<!-- registraion form -->
+	<div class="jumbotron">
+		<h3>REGISTRATION FORM</h3><br>
+        <form action="register.php" method="post" name="signup"  onsubmit="return validateRegistrationDetails()">
+		
+                    <input type="text" name="name" placeholder="Name" /><br>
+					<input type="text" name="company" placeholder="Company" /><br>
+					<input type="text" name="mobileno" placeholder="Mobile Number" maxlength="10" /><br>
+					<input type="text" name="emailid" placeholder="E-mail ID" /><br>
+					<input type="text" name="city" placeholder="City" /><br>
+                    <select name="country" >
+						<option value="">Select your country</option>
+						<option value="india">INDIA</option>
+						<option value="america">AMERICA</option>
+						<option value="canada">CANADA</option>
+					</select><br> 
+					<select name="pre_edition" >
+						<option value="">Have you attendend earlier edition?</option>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select><br> 
+					<select name="prof" >
+						<option value="">What is your profession?</option>
+						<option value="entrepreneur">Entrepreneur</option>
+						<option value="employee">Employee</option>
+					</select><br> 
+					<select name="des" >
+						<option value="">What is your Designation?</option>
+						<option value="top_mgt">Top Level Management</option>
+						<option value="div_head">Division Head</option>
+						<option value="team_lead">Team Lead</option>
+					</select><br><br>
+					<label> Which event is your primary visit?<br></label>
+					<input type="checkbox" name="event" value="event1"> Event1</input>
+					<input type="checkbox" name="event" value="event2"> Event2</input><br>
+					<br><br>
+					<label> How do you know About us?<br></label>
+					<input type="checkbox" name="about" value="regular"> Regular Visitor</input><br>
+					<input type="checkbox" name="about" value="newspaper"> Newspaper</input><br>
+					<input type="checkbox" name="about" value="magazine"> Magazines</input><br>
+					<input type="checkbox" name="about" value="newsletter"> Online News Letter</input><br>
+					<input type="checkbox" name="about" value="internet"> Internet</input><br>
+					<br><br>
+					 <img src="captcha.php" class="form_captcha" />
+            				 <div class="lines">Verification (Type what you see):</div>
+            				 <input type="text" name="captcha" value="" class="captcha" onchange="checkCaptcha()"/><br><br>
+						<div id="registration_error" style="color:red;"></div><br>
+                    			 <br><input type="submit" name="login" value="Complete Registration" class="btn btn-info" />
+        </form>
+    </div>
+	  <hr>
+	  
+	<!-- contact us -->
+	<div class="jumbotron" id="contact">
+        <h4>Contact us</h4>
+		<form action="feedback.php" name="contact" method="post" onsubmit="return validateContactDetails()">
+					<input type="text" name="name" placeholder="Name*"/><br>
+					<input type="text" name="mobileno" placeholder="Mobile*" maxlength="10"/><br>
+					<input type="text" name="emailid" placeholder="Email*"  /><br>
+					<textarea type="text" name="message" placeholder="Message*" ></textarea><br><br>
+					<div id="contact_error" style="color:red;"></div><br>
+					<input type="submit" name="send" value="Send" class="btn btn-info"/>
+		</form>
+		
+    </div> <!-- End Of Contact Us-->
+    <a href="assets/Admin.html">Admin</a>
+	<!-- footer part -->
+      <div class="footer">
+        <p>© Company 2012</p>
+      </div>
+
+    </div> <!-- /container -->
+
+   
+  
+
+</body>
+</html>

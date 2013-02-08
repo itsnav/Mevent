@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)http://twitter.github.com/bootstrap/examples/marketing-narrow.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Template · Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body 
+	  {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: left;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 16px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.png">
+  <script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/document_iterator.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/find_proxy.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/get_html_text.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/global_constants.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/name_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/number_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/string_finder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/change_sink.js"></script><meta name="document_iterator.js"><meta name="find_proxy.js"><meta name="get_html_text.js"><meta name="global_constants.js"><meta name="name_injection_builder.js"><meta name="number_injection_builder.js"><meta name="string_finder.js"><meta name="change_sink.js"></head>
+  
+	<script type="text/javascript" language="javascript">
+function deactive_all()
+{
+//alert("Loaded Properly");
+document.signup.name.value="";
+document.signup.country.value="";
+document.signup.mobileno.value="";
+document.signup.emailid.value="";
+document.signup.company.value="";
+document.signup.city.value="";
+document.signup.pre_edition.value="";
+document.signup.prof.value="";
+document.signup.des.value="";
+
+//document.signup.name.disabled=true;
+document.signup.country.disabled=true;
+document.signup.mobileno.disabled=true;
+document.signup.emailid.disabled=true;
+document.signup.company.disabled=true;
+document.signup.city.disabled=true;
+document.signup.pre_edition.disabled=true;
+document.signup.prof.disabled=true;
+document.signup.des.disabled=true;
+document.signup.login.disabled=true;
+document.signup.name.focus();
+
+//alert("after deactivation");
+}
+
+
+function validate(curr)
+{
+
+var exp1=/^[a-zA-Z]*$/ //for name company city 
+//var exp2=/^(\w|\.)*$/ //for uname
+//var exp3=/^(\w|\.){6,20}$/ //for password confirm password
+
+var exp5=/^[7-9][0-9]{9,10}$/ //for mobile number
+var exp6=/^(\w|\.)*@[a-z]*\.[a-z]*$/ // for email
+var exp7=/^(\w|\.)*@[a-z]*\.[a-z]*\.[a-z]*$/ // for email like .co.in
+switch(curr)
+{
+case 'name':
+   
+			if(exp1.test(document.signup.name.value))
+			{
+			document.signup.company.disabled=false;
+			document.signup.company.focus();
+			}
+			else
+			{
+			alert("Invalid first name \n First name should have alphabets only ");
+			//document.sigup.name.value="";
+			document.signup.name.focus();
+			
+			}
+			break;
+			
+case 'company':
+    
+			if(exp1.test(document.signup.company.value))
+			{
+			document.signup.mobileno.disabled=false;
+			document.signup.mobileno.focus();
+			}
+			else
+			{
+			alert("Invalid company name");
+			//document.signup.company.value="";
+			document.signup.company.focus();
+			}
+			break;
+			
+case 'mobileno':
+    
+			if(exp5.test(document.signup.mobileno.value))
+			{
+			document.signup.emailid.disabled=false;
+			document.signup.emailid.focus();
+			}
+			else
+			{
+			alert("Invalid mobile number\n mobile number should have exactly 10 numbers\nshould start with 7 or 8 or 9");
+			//document.signup.mobileno.value="";
+			document.signup.mobileno.focus();
+			}
+			break;
+			
+case 'emailid':
+			if(exp6.test(document.signup.emailid.value))
+			{
+			document.signup.city.disabled=false;
+			document.signup.city.focus();
+			}
+			else
+			{
+				if(exp7.test(document.signup.emailid.value))
+				{
+				document.signup.city.disabled=false;
+				document.signup.city.focus();
+				
+				}
+				else
+				{
+				alert("Invalid email id\n pleaes enter a proper email id");
+				//document.signup.emailid.value="";
+				document.signup.emailid.focus();
+				}
+			}
+			break;			
+			
+			
+case 'city':
+           
+			if(exp1.test(document.signup.city.value))
+			{
+			document.signup.country.disabled=false;
+			document.signup.country.focus();
+			}
+			else
+			{
+			alert("Invalid City");
+			//document.signup.city.value="";
+			document.signup.city.focus();
+			}
+			break;
+			
+case 'country':
+   
+			if(exp1.test(document.signup.country.value))
+			{
+			document.signup.pre_edition.disabled=false;
+			document.signup.pre_edition.focus();
+			}
+			else
+			{
+			alert("Invalid Country");
+			document.signup.country.focus();
+			}
+			
+			
+			break;
+
+case 'pre_edition':
+			if(exp1.test(document.signup.pre_edition.value))
+			{
+			document.signup.prof.disabled=false;
+			document.signup.prof.focus();
+			}
+			else
+			{
+			//alert("Invalid Option");
+			//document.signup.pre_edition.value="";
+			document.signup.pre_edition.focus();
+			}
+			break;
+
+
+
+case 'prof':
+			if(exp1.test(document.signup.prof.value))
+			{
+			document.signup.des.disabled=false;
+			document.signup.des.focus();
+			}
+			else
+			{
+			//alert("Invalid Profession");
+			//document.signup.des.value="";
+			document.signup.prof.focus();
+			}
+			break;
+case 'des':
+			if(exp1.test(document.signup.des.value))
+			{
+			document.signup.login.disabled=false;
+			document.signup.login.focus();
+			}
+			else
+			{
+			//alert("Invalid Designation");
+			//document.signup.prof.value="";
+			document.signup.des.focus();
+			}
+			
+			break;
+}
+}
+	</script>
+  <body onLoad="deactive_all()">
+
+    <div class="container-narrow">
+	
+	<!-- top banner -->
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Register</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <h3 class="muted">LOGO</h3>
+      </div>
+      <hr>
+
+	<!-- event description -->
+      <div class="jumbotron">
+        <h4>Event Name</h4>
+        <p class="lead">Event Description .. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      </div>
+	  <hr>
+	  
+	<!-- registraion form -->
+	<div class="jumbotron">
+		<h3>REGISTRATION FORM</h3><br>
+        <form action="register.php" method="post" name="signup">
+                    <input type="text" name="name" placeholder="Name" onChange="validate('name')"/><br>
+					<input type="text" name="company" placeholder="Company" onChange="validate('company')"/><br>
+					<input type="text" name="mobileno" placeholder="Mobile Number" maxlength="10" onChange="validate('mobileno')"/><br>
+					<input type="text" name="emailid" placeholder="E-mail ID" onChange="validate('emailid')"/><br>
+					<input type="text" name="city" placeholder="City" onChange="validate('city')"/><br>
+                    <select name="country" onChange="validate('country')">
+						<option value="0">Select your country</option>
+						<option value="india">INDIA</option>
+						<option value="america">AMERICA</option>
+						<option value="canada">CANADA</option>
+					</select><br> 
+					<select name="pre_edition" onChange="validate('pre_edition')">
+						<option value="0">Have you attendend earlier edition?</option>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select><br> 
+					<select name="prof" onChange="validate('prof')">
+						<option value="">What is your profession?</option>
+						<option value="entrepreneur">Entrepreneur</option>
+						<option value="employee">Employee</option>
+					</select><br> 
+					<select name="des" onChange="validate('des')">
+						<option value="">What is your Designation?</option>
+						<option value="top_mgt">Top Level Management</option>
+						<option value="div_head">Division Head</option>
+						<option value="team_lead">Team Lead</option>
+					</select><br><br>
+					<label> Which event is your primary visit?<br></label>
+					<input type="checkbox" name="event" value="event1"> Event1</input>
+					<input type="checkbox" name="event" value="event2"> Event2</input><br>
+					<br><br>
+					<label> How do you know About us?<br></label>
+					<input type="checkbox" name="about" value="regular"> Regular Visitor</input><br>
+					<input type="checkbox" name="about" value="newspaper"> Newspaper</input><br>
+					<input type="checkbox" name="about" value="magazine"> Magazines</input><br>
+					<input type="checkbox" name="about" value="newsletter"> Online News Letter</input><br>
+					<input type="checkbox" name="about" value="internet"> Internet</input><br>
+					<br><br>
+                    <br><input type="submit" name="login" value="Complete Registration" class="btn btn-info"/>
+        </form>
+    </div>
+	  <hr>
+	  
+	<!-- contact us -->
+	<div class="jumbotron" id="contact">
+        <h4>Contact us</h4>
+		<form action="feedback.php" name="contact" method="post">
+					<input type="text" name="name" placeholder="Name*"/><br>
+					<input type="text" name="mobileno" placeholder="Mobile*" maxlength="10"/><br>
+					<input type="text" name="emailid" placeholder="Email*"  /><br>
+					<textarea type="text" name="message" placeholder="Message*" ></textarea><br><br>
+					<input type="submit" name="send" value="Send" class="btn btn-info"/>
+		</form>
+    </div>
+    <a href="assets/Admin.html">Admin area</a>
+	<!-- footer part -->
+      <div class="footer">
+        <p>© Company 2012</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./Template · Bootstrap_files/jquery.js"></script>
+    <script src="./Template · Bootstrap_files/bootstrap-transition.js"></script>
+    <script src="./Template · Bootstrap_files/bootstrap-alert.js"></script>
+    <script src="./Template · Bootstrap_files/bootstrap-modal.js"></script>
+    <script src="./Template · Bootstrap_files/bootstrap-dropdown.js"></script>
+    <script src="./Template · Bootstrap_files/bootstrap-scrollspy.js"></script>
+    <script src="./Template · Bootstrap_files/bootstrap-tab.js"></script>
+    <script src="./Template · Bootstrap_files/bootstrap-tooltip.js"></script>
+    <script src="./Template · Bootstrap_files/bootstrap-popover.js"></script>
+    <script src="./Template · Bootstrap_files/bootstrap-button.js"></script>
+    <script src="./Template · Bootstrap_files/bootstrap-collapse.js"></script>
+    <script src="./Template · Bootstrap_files/bootstrap-carousel.js"></script>
+    <script src="./Template · Bootstrap_files/bootstrap-typeahead.js"></script>
+
+  
+
+</body>
+<span id="skype_highlighting_settings" display="none" autoextractnumbers="1"></span><object id="skype_plugin_object" location.href="http://twitter.github.com/bootstrap/examples/marketing-narrow.html" location.hostname="twitter.github.com" style="position: absolute; visibility: hidden; left: -100px; top: -100px;" width="0" height="0" type="application/x-vnd.skype.toolbars.npplugin.4.2.0"></object></html>
